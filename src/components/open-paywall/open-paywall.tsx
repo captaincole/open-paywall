@@ -1,11 +1,11 @@
 import { Component, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'my-component',
-  styleUrl: 'my-component.css',
+  tag: 'open-paywall',
+  styleUrl: 'open-paywall.css',
   shadow: true
 })
-export class MyComponent {
+export class OpenPaywall {
 
   @Prop() first: string;
   @Prop() last: string;
@@ -13,7 +13,7 @@ export class MyComponent {
   render() {
     return (
       <div>
-        Hello, World! I'm {this.first} {this.last}
+        Hello, World! I'm Open Paywall
       </div>
     );
   }

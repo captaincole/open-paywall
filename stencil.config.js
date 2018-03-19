@@ -1,5 +1,5 @@
 exports.config = {
-  namespace: 'mycomponent',
+  namespace: 'open-paywall',
   generateDistribution: true,
   serviceWorker: false
 };

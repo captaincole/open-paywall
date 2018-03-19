@@ -20,29 +20,29 @@ declare global {
 
 
 import {
-  MyComponent as MyComponent
-} from './components/my-component/my-component';
+  OpenPaywall as OpenPaywall
+} from './components/open-paywall/open-paywall';
 
 declare global {
-  interface HTMLMyComponentElement extends MyComponent, HTMLStencilElement {
+  interface HTMLOpenPaywallElement extends OpenPaywall, HTMLStencilElement {
   }
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  var HTMLOpenPaywallElement: {
+    prototype: HTMLOpenPaywallElement;
+    new (): HTMLOpenPaywallElement;
   };
   interface HTMLElementTagNameMap {
-    "my-component": HTMLMyComponentElement;
+    "open-paywall": HTMLOpenPaywallElement;
   }
   interface ElementTagNameMap {
-    "my-component": HTMLMyComponentElement;
+    "open-paywall": HTMLOpenPaywallElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-component": JSXElements.MyComponentAttributes;
+      "open-paywall": JSXElements.OpenPaywallAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyComponentAttributes extends HTMLAttributes {
+    export interface OpenPaywallAttributes extends HTMLAttributes {
       first?: string;
       last?: string;
     }
