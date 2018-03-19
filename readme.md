@@ -10,7 +10,7 @@ Open Paywall makes it dead simple to integrate payments into your system. Add ou
 <script src="npm/open-paywall.js">
 ...
 <body>
-  <open-paywallprovider="stripe" cost="1500" access-token="your-token">
+  <open-paywall provider="stripe" cost="1500" access-token="your-token">
     <div>Your Permium Content Here!</div>
   </open-paywall>
 ...
