@@ -11,10 +11,16 @@ Open Paywall makes it dead simple to integrate payments into your system. Add ou
 ...
 <body>
   <open-paywall provider="stripe" cost="1500" access-token="your-token">
-    <div>Your Permium Content Here!</div>
+    <div class="premium-content">Your Permium Content Here!</div>
   </open-paywall>
 ...
 </body>
+<script>
+  document.addEventListener('paymentMade', (event) => {
+    console.log('Payment Made');
+    document.querySelector('.premium-content').style.display = 'block';
+  });
+<script>
 ```
 
 ## How It Works
