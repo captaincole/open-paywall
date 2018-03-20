@@ -31,6 +31,9 @@ Then you configure a certain price and product id for your purchase. The product
 
 Add paywall either around your content, as a redirect link, or as a top level object. Then viola, you now have premium content!
 
+## Custom Backend Support -- Or Use Our Backend Templates
+
+In the /backend directory, you can find a sample backend application that can be easily deployed to your favorite serverless environment (Lambda etc...) to handle transactions. We are working on providing a one click service that will launch this backend service preconfigured for you.
 
 ## Cross Framework Component? How Is That Even Possible
 
