@@ -43,8 +43,10 @@ declare global {
   }
   namespace JSXElements {
     export interface OpenPaywallAttributes extends HTMLAttributes {
-      first?: string;
-      last?: string;
+      accessToken?: string;
+      cost?: number;
+      provider?: string;
+      serverUrl?: string;
     }
   }
 }

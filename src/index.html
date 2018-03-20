@@ -4,10 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
+  <script src="https://js.stripe.com/v3/"></script>
   <script src="/build/open-paywall.js"></script>
-
 </head>
 <body>
-  <open-paywall first="Stencil" last="'Don't call me a framework' JS"></open-paywall>
+  <open-paywall provider="stripe" access-token="pk_test_AvraDjBcD7iwWLdQciVt0F7q" cost="1025">
+    <div class="premium-content" style="display: none;">
+      This is that incredible premium content you have been looking for. Lets make a million bucks!
+    </div>
+  </open-paywall>
 </body>
+<script>
+  document.addEventListener('paymentMade', (event) => {
+    console.log('Payment Made');
+    document.querySelector('.premium-content').style.display = 'block';
+  });
+</script>
 </html>
