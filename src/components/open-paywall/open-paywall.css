@@ -1,3 +1,41 @@
 .credit {
     display: block;
 }
+
+open-paywall {
+    width: 100%;
+}
+
+open-paywall > *  {
+    filter: blur(10px);
+}
+
+open-paywall > .wall {
+    filter: none;
+    width: 100%;
+}
+
+open-paywall > .payments {
+    filter: none;
+    width: calc(100% - 20px);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: grey;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.payments > form {
+    margin: 20px;
+}
+
+open-paywall > .wall > .purchase {
+    height: 100px;
+    width: 100%;
+    padding-top: 35px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}

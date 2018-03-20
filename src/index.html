@@ -5,19 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
   <script src="https://js.stripe.com/v3/"></script>
+  <script src="https://unpkg.com/@ionic/core@0.1.4-9/dist/ionic.js"></script>
   <script src="/build/open-paywall.js"></script>
 </head>
 <body>
-  <open-paywall provider="stripe" access-token="pk_test_AvraDjBcD7iwWLdQciVt0F7q" cost="1025">
-    <div class="premium-content" style="display: none;">
-      This is that incredible premium content you have been looking for. Lets make a million bucks!
-    </div>
-  </open-paywall>
+  <ion-header class="header">
+    <ion-title>Hipster Secrets</ion-title>
+  <ion-header>
+  <ion-card class="blog-post">
+    <ion-card-header><h2>Espresso? So So</h2></ion-card-header>
+    <ion-card-content>
+      <p>Iceland woke cardigan freegan quinoa crucifix art party portland scenester seitan vape trust fund paleo succulents. Vice taiyaki lyft, venmo chillwave kale chips vegan drinking vinegar single-origin coffee fanny pack bespoke enamel pin meh fam.</p>
+    </ion-card-content>
+  </ion-card>
+    <ion-card class="blog-post">
+      <ion-card-header><h2>Vinyl or Cassette?</h2></ion-card-header>
+      <ion-card-content>
+        <open-paywall provider="stripe" access-token="pk_test_AvraDjBcD7iwWLdQciVt0F7q" cost="1025">
+          <p class="premium-content">Iceland woke cardigan freegan quinoa crucifix art party portland scenester seitan vape trust fund paleo succulents. Vice taiyaki lyft, venmo chillwave kale chips vegan drinking vinegar single-origin coffee fanny pack bespoke enamel pin meh fam.</p>
+        </open-paywall>
+      </ion-card-content>
+    </ion-card>
 </body>
 <script>
   document.addEventListener('paymentMade', (event) => {
+    document.querySelector('.premium-content').style.filter = "none";
     console.log('Payment Made');
-    document.querySelector('.premium-content').style.display = 'block';
   });
 </script>
 </html>
