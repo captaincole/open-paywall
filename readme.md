@@ -4,12 +4,15 @@
 
 Integrating a paywall into your website to get paid for your content should be easy. Unforutantly, payment provider systems do a great job at accepting payments, but a poor job of making it easy to integrate the paywall into your website. Their implementations hide behind fancy javascript that statically defines your payments.
 
-![example](https://github.com/thielCole/open-paywall/blob/master/open-paywall-examplevid.gif) 
+<img style="margin: auto;" src="https://github.com/thielCole/open-paywall/blob/master/open-paywall-examplevid.gif" width="500" height="800">
 
 Open Paywall makes it dead simple to integrate payments into your system. Add our script tag, and then include this simple html component in your website that can be built with any framework, or no framework at all.
 
 ```html
-<script src="npm/open-paywall.js">
+<head>
+  <script src="https://unpkg.com/open-paywall@0.0.1/dist/open-paywall.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
 ...
 <body>
   <open-paywall provider="stripe" cost="1500" access-token="your-token">
@@ -41,14 +44,55 @@ In the /backend directory, you can find a sample backend application that can be
 
 Got front end framework fatigue? Well we won't add to that. Our components work accross frameworks and even with vanilla html! 
 
+### Integrate with Angular
+It becomes quite simple to integrate with Angular. First, include the script tag in your index.html file
+
+```html
+<head>
+  <script src="https://unpkg.com/open-paywall@0.0.1/dist/open-paywall.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+```
+
+Then, in each module you intend to use your paywall, add the CUSTOM_ELEMENTS_SCHEMA to the schemas modules, like below
+```js
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+...
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+```
 ### Integrate with React
-Coming Soon
+Just include the two script tages into your index.html file in the /public folder of your react app. Then, integerate your paywall component in any render function.
 
-### Integrate with Angular 2+
-Coming Soon
+```html
+<!-- public/index.html -->
+<head>
+  <script src="https://unpkg.com/open-paywall@0.0.1/dist/open-paywall.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+```
 
-### Integrate with Vue.js
-Coming Soon
+```js
+// my-component.js
+render() {
+...
+  <open-paywall provider="stripe" cost="1500" access-token="your-token">
+    <div class="premium-content">Your Permium Content Here!</div>
+  </open-paywall>
+...
+}
+```
+
 
 ## For Developers
 Coming Soon
