@@ -4,7 +4,7 @@
 
 Integrating a paywall into your website to get paid for your content should be easy. Unforutantly, payment provider systems do a great job at accepting payments, but a poor job of making it easy to integrate the paywall into your website. Their implementations hide behind fancy javascript that statically defines your payments.
 
-<img src="https://github.com/thielCole/open-paywall/blob/master/open-paywall-examplevid.gif" width="500" height="900">
+<img style="margin: auto;" src="https://github.com/thielCole/open-paywall/blob/master/open-paywall-examplevid.gif" width="500" height="800">
 
 Open Paywall makes it dead simple to integrate payments into your system. Add our script tag, and then include this simple html component in your website that can be built with any framework, or no framework at all.
 
