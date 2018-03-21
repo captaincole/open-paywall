@@ -3,19 +3,20 @@
 }
 
 open-paywall {
+    height: 100%;
     width: 100%;
+    position: initial;
+    top: 0px;
+    left: 0px;
 }
 
 open-paywall > *  {
-    filter: blur(10px);
-}
-
-open-paywall > .wall {
-    filter: none;
-    width: 100%;
+    display: inline-block;
+    filter: blur(5px);
 }
 
 open-paywall > .payments {
+    display: block;
     filter: none;
     width: calc(100% - 20px);
     position: absolute;
@@ -27,15 +28,13 @@ open-paywall > .payments {
 }
 
 .payments > form {
+    display: block;    
     margin: 20px;
 }
 
 open-paywall > .wall > .purchase {
-    height: 100px;
-    width: 100%;
-    padding-top: 35px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    display: block;
+    margin: auto;
+    margin-top: 35px;
     text-align: center;
 }

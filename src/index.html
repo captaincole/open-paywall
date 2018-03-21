@@ -20,13 +20,15 @@
   </ion-card>
     <ion-card class="blog-post">
       <ion-card-header><h2>Vinyl or Cassette?</h2></ion-card-header>
-      <ion-card-content>
-        <open-paywall provider="stripe" access-token="pk_test_AvraDjBcD7iwWLdQciVt0F7q" cost="1025">
-          <p class="premium-content">Iceland woke cardigan freegan quinoa crucifix art party portland scenester seitan vape trust fund paleo succulents. Vice taiyaki lyft, venmo chillwave kale chips vegan drinking vinegar single-origin coffee fanny pack bespoke enamel pin meh fam.</p>
-        </open-paywall>
-      </ion-card-content>
+        <ion-card-content>
+          <open-paywall provider="stripe" access-token="pk_test_AvraDjBcD7iwWLdQciVt0F7q" cost="1025">                          
+            <p class="premium-content">Iceland woke cardigan freegan quinoa crucifix art party portland scenester seitan vape trust fund paleo succulents. Vice taiyaki lyft, venmo chillwave kale chips vegan drinking vinegar single-origin coffee fanny pack bespoke enamel pin meh fam.</p>
+          </open-paywall>
+        </ion-card-content>
     </ion-card>
 </body>
+<style>
+</style>
 <script>
   document.addEventListener('paymentMade', (event) => {
     document.querySelector('.premium-content').style.filter = "none";

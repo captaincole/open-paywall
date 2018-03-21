@@ -71,13 +71,22 @@ export class OpenPaywall {
   }
 
   render() {
+    const wallStyle = {
+        filter: 'none',
+        display: 'block',
+        position: 'absolute',
+        top: '0px',
+        left: '0px',
+        width: '100%',
+        height: '100%',
+        'z-index': '10',
+    };
+
     const wall = (
-        <div class="wall">
-            <div class="purchase">
-                <ion-button onClick={(e) => this.purchase(e)}>Purchase Premium Hipster</ion-button>
-            </div>
+        <div class="wall" style={wallStyle}>
+            <button class="purchase" onClick={(e) => this.purchase(e)}>Purchase Premium Hipster</button>
         </div>
-    )
+    );
     
     const paywall = (
         <div class="paywall payments">
