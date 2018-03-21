@@ -78,6 +78,7 @@ export class OpenPaywall {
             </div>
         </div>
     )
+    
     const paywall = (
         <div class="paywall payments">
             <form onSubmit={(e) => this.charge(e)}>
