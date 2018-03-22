@@ -12,6 +12,8 @@ export class OpenPaywall {
   @Prop() accessToken: string;
   @Prop() cost: number;
   @Prop() serverUrl: string;
+  @Prop() action: string;
+  @Prop() user: string;
 
   @State() stripe;
   @State() elements;
@@ -21,9 +23,23 @@ export class OpenPaywall {
   @State() mounted: boolean = false;
   @Event() paymentMade: EventEmitter;
 
-  componentDidLoad() {
-    // Check For Stripe
-  }
+  stripeStyle = {
+    base: {
+        color: '#e6ebf1',
+        lineHeight: '18px',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+        color: '#e6ebf1'
+        }
+    },
+    invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+    }
+  };
+
   componentDidUpdate() {
       if (!this.paid && !this.mounted && this.paying) {
           this.createElements();
@@ -38,9 +54,7 @@ export class OpenPaywall {
         console.log('Stripe Isnt Loaded');
     }
     this.elements = this.stripe.elements();
-    const style = {};
-    this.card = this.elements.create('card', {style: style});
-
+    this.card = this.elements.create('card', {style: this.stripeStyle});
     this.card.mount('#card-element');
     this.mounted = true;
   }
@@ -60,14 +74,41 @@ export class OpenPaywall {
         const errorElement = document.getElementById('card-errors');
         errorElement.textContent = err.message;
       } else {
-          this.handleToken(token);
+          await this.handleToken(token);
       }
   }
 
-  handleToken(t) {
-    console.log('Handling Token', t);
+  async handleToken(t) {
+    // Post To Action URL
+    if (!this.action) {
+        // alert('No Server For Payments');
+    }
+
+    const body = {
+        token: t,
+        cost: this.cost,
+        user: this.user
+    };
+
+    const fetchOptions = {
+        body: JSON.stringify(body), // must match 'Content-Type' header
+        headers: {
+        'user-agent': 'Mozilla/4.0 MDN Example',
+        'content-type': 'application/json'
+        },
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        referrer: 'no-referrer', // *client, no-referrer
+    };
+
+    let serverResponse;
+    try {
+        serverResponse = await fetch(this.action, fetchOptions);
+    } catch (err) {
+        console.warn(err);
+        alert('Server Error');
+    }
     this.paid = true;
-    this.paymentMade.emit(true);
+    this.paymentMade.emit(serverResponse);
   }
 
   render() {
@@ -84,7 +125,7 @@ export class OpenPaywall {
 
     const wall = (
         <div class="wall" style={wallStyle}>
-            <button class="purchase" onClick={(e) => this.purchase(e)}>Purchase Premium Hipster</button>
+            <button class="purchase" onClick={(e) => this.purchase(e)}>PREMIUM HIPSTERS ONLY</button>
         </div>
     );
     
@@ -93,13 +134,13 @@ export class OpenPaywall {
             <form onSubmit={(e) => this.charge(e)}>
                 <div class="card-form">
                     <label>
-                    Credit or debit card
+                    Upgrade To Premium Hipster Status
                     </label>
                     <div id="card-element">
                     </div>
                     <div id="card-errors" role="alert"></div>
                 </div>
-                <button>Charge</button>
+                <button>UPGRADE $15</button>
             </form>
         </div>);
 

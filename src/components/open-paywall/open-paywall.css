@@ -3,7 +3,7 @@
 }
 
 open-paywall {
-    height: 100%;
+    min-height: 550px;
     width: 100%;
     position: initial;
     top: 0px;
@@ -22,19 +22,78 @@ open-paywall > .payments {
     position: absolute;
     top: 0px;
     left: 0px;
-    background-color: grey;
-    border-radius: 10px;
     margin: 10px;
+    
 }
 
 .payments > form {
     display: block;    
-    margin: 20px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #3F51B5;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 450px;
+    font-family: 'Avenir Next';
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
+
+.payments > form > button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 15px;
+    font-family: 'Avenir Next';
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.payments > form > .card-form > label {
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    max-width: 75%;
+    font-size: 16px;
+    font-weight: 500;
+}
+
 
 open-paywall > .wall > .purchase {
     display: block;
     margin: auto;
     margin-top: 35px;
     text-align: center;
+    font-family: 'Avenir Next'; 
+    background-color: #3F51B5;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.StripeElement {
+  background-color: #3F51B5;
+  height: 40px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.StripeElement--focus {
+  border: 1px solid white;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
 }
